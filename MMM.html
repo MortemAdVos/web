@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="./styles.css">  
+      <link rel="stylesheet" href="./st.scss">   
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">    
+      <link rel="script" href="./script.js">
+      <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@200&family=Press+Start+2P&display=swap" rel="stylesheet">
+      <title>Document</title>
+  </head>
+  <body>
+      <header class="headr">
+        <nav>
+          <a href="#">ВОЙТИ</a>
+        </nav>
+      </header>
+      <h1 class="mainh1">ЧОП МБР & co</h1>
+      <div class="container">
+        <div id="carouselCaptions" class="carousel slide" class="carousel" alt = "">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              <button type="button" data-bs-target="#carouselCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img id='holymask'src="https://rusdialog.ru/images/news/85d60c5e2848f5318493f1f0cdaa7088.jpg" alt="">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Тополь</h5>
+                    <!-- <p>Некоторый репрезентативный заполнитель для третьего слайда.</p> -->
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img id='holymask'src="https://gunsfriend.ru/wp-content/uploads/6/c/9/6c9b1cb44993fa4aa15a58001f4b490c.jpeg" alt="">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Сармат</h5>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img id='holymask'src="https://molva33.ru/wp-content/uploads/2023/04/9-01-scaled.jpg" alt="">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Кинжал</h5>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img id='holymask'src="https://rusdialog.ru/images/news/6739ed347aaaa7ca2bedda18686356d4.jpg" alt="">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Х-32</h5>
+                </div>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselCaptions" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Предыдущий</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselCaptions" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Следующий</span>
+            </button>
+        </div>
+      </div>
+      
+      <div class="container">
+        <img id="imgbtn" class="imgbtn" src="https://a.d-cd.net/OlAAAgE_ouA-1920.jpg">
+        <button class = "redbutton">НАНЕСТИ УДАР. CABOOOM!</button>
+      </div>
+      <br></br>
+      <h3>Две ракеты по цене одной!</h3>
+      <h3>Спешите, до конца акции:</h3>
+      <div class="countdown">
+        <div class="countdown-item">
+          <span id="days">00</span>
+          <span class="label">Дней</span>
+        </div>
+        <div class="countdown-item">
+          <span id="hours" >00</span>
+          <span class="label">Часов</span>
+        </div>
+        <div class="countdown-item">
+          <span id="minutes">00</span>
+          <span class="label">Минут</span>
+        </div>
+        <div class="countdown-item">
+          <span id="seconds">00</span>
+          <span class="label">Секунд</span>
+        </div>
+      </div>
+      <script>
+        const countdown = document.querySelector('.countdown');
+          const targetDate = new Date('2024-01-01T00:00:00');
+          
+          function updateCountdown() {
+            const now = new Date();
+            const remainingTime = targetDate - now;
+          
+            const days = Math.floor(remainingTime / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((remainingTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
+          
+            document.getElementById('days').innerText = days.toString().padStart(2, '0');
+            document.getElementById('hours').innerText = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').innerText = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').innerText = seconds.toString().padStart(2, '0');
+          }setInterval(updateCountdown, 1000);
+      </script>
+      <br></br>
+      <p></p>
+      <div class="container2">
+        <div id="carouselCaptions2" class="carousel slide2" class="carousel2" alt = "">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselCaptions2" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselCaptions2" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselCaptions2" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              <button type="button" data-bs-target="#carouselCaptions2" data-bs-slide-to="3" aria-label="Slide 4"></button>
+              <button type="button" data-bs-target="#carouselCaptions2" data-bs-slide-to="4" aria-label="Slide 5"></button>
+              <button type="button" data-bs-target="#carouselCaptions2" data-bs-slide-to="5" aria-label="Slide 6"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="box-area">	
+                  <div class="img-area">
+                    <img class="otzimg" src="img/1.png" alt="">
+                  </div>	
+                  <h5>Бибер</h5>
+                  <span>Бахмут</span>									
+                  <p class="content">
+                    Довольно качественно отработали, чем спасли наших пацанов, большое спасибо за проделанную работу.
+                  </p>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <div class="box-area">	
+                  <div class="img-area">
+                    <img class="otzimg" src="img/2.png" alt="">
+                  </div>	
+                  <h5>Долик</h5>
+                  <span>Артёмовск</span>									
+                  <p class="content">
+                    Большое спасибо, отработали хорошо.
+                  </p>
+                </div>
+              </div>
+    
+              <div class="carousel-item">
+                <div class="box-area">	
+                  <div class="img-area">
+                    <img class="otzimg" src="img/3.png" alt="">
+                  </div>	
+                  <h5>Гигиачад</h5>
+                  <span>Интернет</span>									
+                  <p class="content">
+                    Несмотря на использование не по прямому назначению вести интернет-срачи довольно удобно, рекомендую.
+                  </p>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <div class="box-area">	
+                  <div class="img-area">
+                    <img class="otzimg" src="img/4.png" alt="">
+                  </div>	
+                  <h5>Пригожин</h5>
+                  <span>Москва</span>									
+                  <p class="content">
+                    Снаряды доставляют лучше чем Герасимов.
+                  </p>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <div class="box-area">	
+                  <div class="img-area">
+                    <img class="otzimg" src="img/5.png" alt="">
+                  </div>	
+                  <h5>Котэ</h5>
+                  <span>Лес</span>									
+                  <p class="content">
+                    Благодаря им я теперь могу бегать спокойно, дёшево и быстро, рекомендую.
+                  </p>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <div class="box-area">	
+                  <div class="img-area">
+                    <img class="otzimg" src="img/6.png" alt="">
+                  </div>	
+                  <h5>إسماعيل هنية</h5>
+                  <span>قطاع غزة</span>									
+                  <p class="content">
+                    على الرغم من ظروف التشغيل المختلفة تماما لمثل هذا المنتج الرائع ، فقد سار كل شيء بشكل جيد
+                  </p>
+                </div>	
+              </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselCaptions2" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Предыдущий</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselCaptions2" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Следующий</span>
+            </button>
+        </div>
+      </div>
+      </br>
+      <p></p>
+
+      <!-- <div>
+          <div id="carouselCaptions2" class="carousel slide2" class="carousel2" alt = "">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselCaptions2" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselCaptions2" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselCaptions2" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              <button type="button" data-bs-target="#carouselCaptions2" data-bs-slide-to="3" aria-label="Slide 4"></button>
+            </div>
+
+            <div class="carousel-inner">
+              <img id='holymask' class="d" src="https://rusdialog.ru/images/news/85d60c5e2848f5318493f1f0cdaa7088.jpg" alt="">
+              <div class="carousel-item active">
+                
+                <div class="carousel-caption d-none d-md-block">
+                  <div class="box-area">	
+                    <div class="img-area">
+                      <img class="otzimg" src="img/1.png" alt="">
+                    </div>	
+                    <h5>Бибер</h5>
+                    <span>Бахмут</span>									
+                    <p class="content">
+                      Довольно качественно отработали, чем спасли наших пацанов, большое спасибо за проделанную работу.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <div class="box-area">	
+                  <div class="img-area">
+                    <img class="otzimg" src="img/2.png" alt="">
+                  </div>	
+                  <h5>Долик</h5>
+                  <span>Артёмовск</span>									
+                  <p class="content">
+                    Большое спасибо, отработали хорошо.
+                  </p>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <div class="box-area">	
+                  <div class="img-area">
+                    <img class="otzimg" src="img/3.png" alt="">
+                  </div>	
+                  <h5>Гигиачад</h5>
+                  <span>Интернет</span>									
+                  <p class="content">
+                    Несмотря на использование не по прямому назначению вести интернет-срачи довольно удобно, рекомендую.
+                  </p>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <div class="box-area">	
+                <div class="img-area">
+                  <img class="otzimg" src="img/4.png" alt="">
+                </div>	
+                <h5>Пригожин</h5>
+                <span>Москва</span>									
+                <p class="content">
+                  Снаряды доставляют лучше чем Герасимов.
+                </p>
+              </div>
+            </div>
+          
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselCaptions2" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Предыдущий</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselCaptions2" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Следующий</span>
+            </button>
+          </div>
+        </div>
+      </div> -->
+      <br></br>
+      <div style="margin: 250px"></div>
+      <h3>Как мы достигам целей?</h3> 
+      <h5>-У нас на производствах новейшее оборудование, что даёт наименьший процент брака</h5>
+      <h5>-Благодаря новейшим технологиям доставка возможна в любую точку планеты за считаные минуты</h5>
+      <h5>-За счёт обратной связи от заказчиков непосредственно около точки доставки у нас постоянно совершенствуется доставляемый груз, а так же средства доставки</h5>
+      <br></br>
+      <!-- <h3>Как мы работаем?</h3> -->
+      <br></br>
+      <button class = "redbutton2">НАНЕСТИ УДАР. CABOOOM!</button>
+    </body>
+</html>
